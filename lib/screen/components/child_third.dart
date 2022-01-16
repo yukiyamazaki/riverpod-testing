@@ -16,6 +16,7 @@ class ChildThird extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final int value = ref.watch(counterPrivider);
+    final String valueHello = ref.watch(helloPrivider);
 
     return Container(
       width: size.width * 0.2,
@@ -30,6 +31,12 @@ class ChildThird extends ConsumerWidget {
           ),
           Center(
             child: Text('$_counter'),
+          ),
+          Center(
+            child: Text(valueHello),
+          ),
+          const Center(
+            child: Text('BBBBBB'),
           ),
         ],
       ),

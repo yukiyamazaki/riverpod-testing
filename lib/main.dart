@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_state_manegement/screen/home.dart';
+// import 'package:flutter_state_manegement/screen/home.dart';
 import 'package:flutter_state_manegement/revier.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -8,7 +8,16 @@ final counterPrivider = StateNotifierProvider<Counter, int>((ref) {
 });
 
 class Counter extends StateNotifier<int> {
-  Counter(this.ref) : super(2222);
+  Counter(this.ref) : super(222);
+  final Ref ref;
+}
+
+final helloPrivider = StateNotifierProvider<Hello, String>((ref) {
+  return Hello(ref);
+});
+
+class Hello extends StateNotifier<String> {
+  Hello(this.ref) : super('AAAAA');
   final Ref ref;
 }
 

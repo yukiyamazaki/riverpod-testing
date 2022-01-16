@@ -10,6 +10,7 @@ class RiverMain extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final int value = ref.watch(counterPrivider);
+    final String valueHello = ref.watch(helloPrivider);
 
     return Scaffold(
       appBar: AppBar(
@@ -20,12 +21,14 @@ class RiverMain extends ConsumerWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text('$value'),
+            Text(valueHello),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          ref.read(counterPrivider.notifier).state++;
+          // ref.read(counterPrivider.notifier).state++;
+          ref.read(helloPrivider.notifier).state = '成功';
         },
         child: const Icon(Icons.add),
         tooltip: 'Increment',
