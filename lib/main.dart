@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_state_manegement/screen/home.dart';
+import 'package:flutter_state_manegement/revier.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final helloWorldProvider = Provider((_) => 'Hello world');
+final counterPrivider = StateNotifierProvider<Counter, int>((ref) {
+  return Counter(ref);
+});
+
+class Counter extends StateNotifier<int> {
+  Counter(this.ref) : super(2222);
+  final Ref ref;
+}
 
 void main() {
   runApp(
@@ -22,7 +30,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      // home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const RiverMain(),
     );
   }
 }
